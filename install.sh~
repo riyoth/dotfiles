@@ -56,4 +56,4 @@ dirupdate () {
 
 
 dirupdate
-cp -r vim ~/.vim
+cp vim ~/.vim
