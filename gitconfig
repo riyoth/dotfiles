@@ -1,5 +1,24 @@
 [user]
-	email = riyoth@gmail.com\n
-	name = Pier-Olivier Clement
+    email = poclement@riyoth.info
+    name = Pier-Olivier Clement
+
+[alias]
+    co = checkout
+    fix = commit -a --amend
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
 [core]
-	editor = vim 
+    editor = vim
+    autocrlf = input
+[apply]
+    whitespace = nowarn
+[format]
+    pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
+[push]
+    default = matching
+[pull]
+    rebase = true
