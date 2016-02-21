@@ -11,6 +11,7 @@
     status = auto
     branch = auto
     ui = true
+    excludesfile = /home/poclement/.gitignore_globa
 [core]
     editor = vim
     autocrlf = input
