@@ -1,0 +1,46 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
+  geometry_hinting = False
+  title_hide_sizetext = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#202020"
+    background_image = None
+    font = Terminus 12
+    foreground_color = "#bbbbbb"
+    palette = "#151515:#fb9fb1:#acc267:#ddb26f:#6fc2ef:#e1a3ee:#12cfc0:#d0d0d0:#505050:#fb9fb1:#acc267:#ddb26f:#6fc2ef:#e1a3ee:#12cfc0:#f5f5f5"
+    scroll_on_keystroke = False
+    scrollback_infinite = True
+    show_titlebar = False
+    use_system_font = False
+  [[New Profile]]
+    background_image = None
+    font = Terminus 12
+    use_system_font = False
+  [[Solarized light]]
+    background_color = "#fdf6e3"
+    background_image = None
+    font = Terminus 12
+    foreground_color = "#657b83"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_system_font = False
+  [[chalk]]
+    background_color = "#202020"
+    background_image = None
+    font = Terminus 12
+    foreground_color = "#bbbbbb"
+    palette = "#151515:#fb9fb1:#acc267:#ddb26f:#6fc2ef:#e1a3ee:#12cfc0:#d0d0d0:#505050:#fb9fb1:#acc267:#ddb26f:#6fc2ef:#e1a3ee:#12cfc0:#f5f5f5"
+    scroll_on_keystroke = False
+    scrollback_infinite = True
+    use_system_font = False
