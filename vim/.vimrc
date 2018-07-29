@@ -1,4 +1,4 @@
-call pathogen#infect()
+"" call pathogen#infect()
 "" Higligth syntax
 syntax on
 filetype plugin indent on

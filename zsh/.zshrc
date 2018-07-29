@@ -83,4 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='ls --color=auto'
+alias package='git archive master --prefix ${PWD##*/}/  | bzip2 > ~/packages/${PWD##*/}.tar.bz2'
 
+export PATH="$HOME/bin:$PATH"
