@@ -3,7 +3,7 @@
 syntax on
 filetype plugin indent on
 let g:solarized_termtrans = 1
-colorscheme solarized
+""colorscheme solarized
 "" Set the tab to space
 set expandtab
 "" Set tab to 4 space
