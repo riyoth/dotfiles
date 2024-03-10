@@ -1,0 +1,4 @@
+--exchange $
+--sort date
+--file ~/Prog/perso/finance/main.journal
+--no-pager
