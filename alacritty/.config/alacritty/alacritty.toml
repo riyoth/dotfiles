@@ -1,0 +1,10 @@
+import = [
+    "~/.config/alacritty/themes/themes/everforest_light.toml"
+]
+
+[font]
+size=13.0
+
+[font.normal]
+family = "Inconsolata Condensed Light"
+
