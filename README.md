@@ -36,3 +36,15 @@ For a workstation with UI
 ```
 stow -t ~ nvim git zsh bash tmux screen alacritty
 ```
+
+### Zsh
+
+Install Prezto with the following command:
+```
+git clone --recursive https://github.com/riyoth/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+```
