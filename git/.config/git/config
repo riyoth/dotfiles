@@ -12,7 +12,6 @@
     status = auto
     branch = auto
     ui = true
-    excludesfile = /home/poclement/.gitignore_global
 [core]
     editor = vim
     autocrlf = input
