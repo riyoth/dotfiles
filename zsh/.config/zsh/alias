@@ -1,1 +1,3 @@
 alias myip='curl ipinfo.io/ip'
+alias vim="nvim"
+alias vi="nvim"
