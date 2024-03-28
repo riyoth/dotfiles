@@ -1,0 +1,10 @@
+# Zsh config file are populated from my Prezto config repository
+zsh/.config/zsh/.zlogin
+zsh/.config/zsh/.zlogout
+zsh/.config/zsh/.zprezto/
+zsh/.config/zsh/.zpreztorc
+zsh/.config/zsh/.zprofile
+zsh/.config/zsh/.zsh_history
+zsh/.config/zsh/.zshenv
+zsh/.config/zsh/.zshrc
+
