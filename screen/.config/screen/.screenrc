@@ -3,4 +3,4 @@ caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= %c"
 vbell off
 defscrollback 32000
 deflog on
-logfile $HOME/Dropbox/iterm2-log/screen-Pier-Oliviers-MacBook-Pro.local/screenlog.%n
+#logfile $HOME/Dropbox/iterm2-log/screen-Pier-Oliviers-MacBook-Pro.local/screenlog.%n
