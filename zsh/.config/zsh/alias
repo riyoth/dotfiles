@@ -1,0 +1,1 @@
+alias myip='curl ipinfo.io/ip'
