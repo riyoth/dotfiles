@@ -1,6 +1,7 @@
 [user]
     email = poclement@riyoth.info
     name = Pier-Olivier Clement
+#	signingkey = 0x59F079DA3BEB641D
 
 [alias]
     co = checkout
@@ -23,3 +24,7 @@
     default = matching
 [pull]
     rebase = true
+[commit]
+	gpgsign = false
+[init]
+	defaultBranch = main
