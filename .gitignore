@@ -8,3 +8,4 @@ zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zshenv
 zsh/.config/zsh/.zshrc
 alacritty/.config/alacritty/themes/
+tmux/.config/tmux/plugins/
