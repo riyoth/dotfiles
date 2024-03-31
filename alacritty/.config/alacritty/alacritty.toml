@@ -5,6 +5,12 @@ import = [
 [font]
 size=13.0
 
+[scrolling]
+history = 100000
+
+[selection]
+save_to_clipboard= true
+
 [font.normal]
-family = "Inconsolata Condensed Light"
+family = "Inconsolata NerdFont Mono"
 
