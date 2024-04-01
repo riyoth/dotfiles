@@ -1,4 +1,7 @@
 #!/bin/bash
+update_remote () {
+	git fetch origin
+}
 remote_change () {
 	REMOTE_CHANGES=$(git rev-list --count master..remotes/origin/master)
 	if [[ "$REMOTE_CHANGES" != "0" ]]
@@ -19,6 +22,7 @@ local_change () {
 check_change () {
 	old_directory=$(pwd)
 	cd $1
+	update_remote
 	remote_change
 	local_change
 	cd $old_directory
