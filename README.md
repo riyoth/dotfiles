@@ -5,7 +5,8 @@
 First install the useful package from the appropriate file in ./packages
 
 Add the following to `/etc/zsh/zshenv` on your systemes or  `$ZDOTDIR/.zshenv` on shared system.
-This will update configuration directory
+This will update configuration directory. You can also run those command in your current terminal
+
 ```
 # XDG Variable
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -14,7 +15,11 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export HISTFILE="$ZDOTDIR"/.zsh_history
+```
 
+Clone this repository in `~/.local/share`
+```
+git clone --recursive https://github.com/riyoth/dotfile.git "${XDG_DATA_HOME}/dotfiles"
 ```
 
 For a server with no UI
