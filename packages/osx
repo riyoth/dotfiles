@@ -1,0 +1,6 @@
+brew install neovim tmux
+brew install pyenv pyenv-virtualenv pipx
+brew install --cask alfred
+brew install --cask rectangle
+brew install --cask alacritty
+brew install --cask font-inconsolata-nerd-font
