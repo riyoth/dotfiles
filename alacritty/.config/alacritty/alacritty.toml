@@ -12,5 +12,10 @@ history = 100000
 save_to_clipboard= true
 
 [font.normal]
+# For Arch linux, install ttf-inconsolata-nerd
 family = "Inconsolata NerdFont Mono"
+
+# For OSX, install font-inconsolata-nerd-font from brew
+# brew install --cask font-inconsolata-nerd-font
+#family = "Inconsolata Nerd Font Mono"
 
