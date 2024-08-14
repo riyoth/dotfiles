@@ -1,21 +1,19 @@
 import = [
-    "~/.config/alacritty/themes/themes/everforest_light.toml"
+	"~/.config/alacritty/themes/themes/everforest_light.toml",
+	"~/.config/alacritty/osx.toml",
+	"~/.config/alacritty/arch.toml",
 ]
 
 [font]
-size=13.0
+size = 16.0
 
 [scrolling]
 history = 100000
 
 [selection]
-save_to_clipboard= true
+save_to_clipboard = true
 
 [font.normal]
-# For Arch linux, install ttf-inconsolata-nerd
-family = "Inconsolata NerdFont Mono"
-
 # For OSX, install font-inconsolata-nerd-font from brew
 # brew install --cask font-inconsolata-nerd-font
-#family = "Inconsolata Nerd Font Mono"
-
+family = "Inconsolata Nerd Font Mono"

@@ -1,0 +1,3 @@
+[font.normal]
+# For Arch linux, install ttf-inconsolata-nerd
+family = "Inconsolata NerdFont Mono"

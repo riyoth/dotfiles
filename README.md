@@ -50,5 +50,21 @@ The configuration refere to theme from github. To install themes:
 ```
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+```
 
+Some of the config are different between OSX and Arch, you can hardlink the appropriate configuration to activate it.
+```
+ln ~/.config/alacritty/_arch.toml ~/.config/alacritty/arch.toml
+ln ~/.config/alacritty/_osx.toml ~/.config/alacritty/osx.toml
+```
+ 
+### Neovim
+
+To install my config clone, make sure you have the following install:
+ - git, make, unzip and gcc
+ - ripgrep
+ - Nerd font
+
+```
+git clone https://github.com/riyoth/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```

@@ -1,0 +1,19 @@
+[font.normal]
+# For OSX, install font-inconsolata-nerd-font from brew
+# brew install --cask font-inconsolata-nerd-font
+family = "Inconsolata Nerd Font Mono"
+
+[font.bold]
+# For OSX, install font-inconsolata-nerd-font from brew
+# brew install --cask font-inconsolata-nerd-font
+family = "Inconsolata Nerd Font Mono"
+
+[font.bold_italic]
+# For OSX, install font-inconsolata-nerd-font from brew
+# brew install --cask font-inconsolata-nerd-font
+family = "Inconsolata Nerd Font Mono"
+
+[font.italic]
+# For OSX, install font-inconsolata-nerd-font from brew
+# brew install --cask font-inconsolata-nerd-font
+family = "Inconsolata Nerd Font Mono"
