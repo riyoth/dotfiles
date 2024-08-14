@@ -68,3 +68,12 @@ To install my config clone, make sure you have the following install:
 ```
 git clone https://github.com/riyoth/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
+
+### Mac OSX
+You can run the command `osx/setup.sh` to configure OSX my way. This include:
+
+ * Move the dock to the left, reduce the size and hide it
+ * Configure right bottom hot corner to lock
+ * Disable mouse natural scroll and increase mouse acceleration
+
+
