@@ -3,6 +3,10 @@
     name = Pier-Olivier Clement
 #	signingkey = 0x59F079DA3BEB641D
 
+# Add  local overide for work
+[includeIf "gitdir:~/code/"]
+    path = ~/code/.gitconfig
+
 [alias]
     co = checkout
     fix = commit -a --amend
