@@ -42,6 +42,13 @@ setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
+
+```
+
+If you need nvm to manage node, install zsh-nvm to enable lazyloading and keep zsh loadtime reasonable.
+```
+mkdir -p ${ZDOTDIR:-$HOME}/plugins/
+git clone https://github.com/lukechilds/zsh-nvm.git ${ZDOTDIR:-$HOME}/plugins/zsh-nvm
 ```
 
 ### Alacritty
