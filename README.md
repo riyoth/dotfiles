@@ -64,6 +64,10 @@ Some of the config are different between OSX and Arch, you can hardlink the appr
 ln ~/.config/alacritty/_arch.toml ~/.config/alacritty/arch.toml
 ln ~/.config/alacritty/_osx.toml ~/.config/alacritty/osx.toml
 ```
+
+### Python
+
+I use `pyenv` to manage different version of python and virtualenv. 
  
 ### Neovim
 
@@ -75,6 +79,8 @@ To install my config clone, make sure you have the following install:
 ```
 git clone https://github.com/riyoth/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 ```
+
+
 
 ### Mac OSX
 You can run the command `osx/setup.sh` to configure OSX my way. This include:
