@@ -1,0 +1,46 @@
+#!/bin/bash
+
+function pyenv_setup () {
+	python_version=`find  $PWD -name runtime.txt -exec egrep -o "3.[0-9]+.[0-9]+"  {} \; `
+	project_name=${PWD##*/}
+	virtualenv=$project_name-$python_version
+
+	if [ -n "$python_version" ] && [ -n "$project_name" ] && [ ! -f "./.python-version" ] 
+	then
+		echo "Install Python $python_version"
+		pyenv install -s $python_version
+		echo "Create Virtualenv $virtualenv and set it to default for this project"
+		pyenv virtualenv $python_version $virtualenv
+		pyenv local $virtualenv 
+
+		if [ -f "requirements.txt" ]
+		then
+			echo "Installing python dependency"
+			pyenv exec pip install -r requirements.txt
+		fi
+		if [ -f "requirements.tests.txt" ]
+		then
+			echo "Installing Python tests dependency"
+			pyenv exec pip install -r requirements.tests.txt
+		fi
+	else
+		echo "Can't complete the pyenv setup"
+		echo "Verify the following:"
+		echo "- the python version is set in runtime.txt. It's currently $python_version"
+		echo "- the project name is valid. it's currently $project_name"
+		echo "- A ./.python-version file already exist"
+	fi
+}
+
+function create_pyproject_toml () {
+	if [ ! -f "./pyproject.toml" ]
+	then
+		echo "Create pyproject.toml"
+		cp "$XDG_DATA_HOME/utils/python-tools/sample/pyproject.toml" .
+	else
+		echo "pyproject.toml exist, do nothing"
+	fi
+}
+
+pyenv_setup
+create_pyproject_toml 
