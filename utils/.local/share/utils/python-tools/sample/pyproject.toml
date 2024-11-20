@@ -1,9 +1,6 @@
 [tool.isort]
-profile = "black"
+profile = "pycharm"
 line_length = 120
-
-[tool.black]
-line-length = 120
 
 [tool.basedpyright]
 typeCheckingMode = "basic"
