@@ -1,0 +1,16 @@
+#/bin/bash
+
+
+function create_pyproject_toml () {
+	if [ ! -f "./pyproject.toml" ]
+	then
+		echo "Create pyproject.toml"
+		cat $XDG_DATA_HOME/utils/python-tools/sample/pyproject.toml >> pyproject.toml
+
+		if [  -f "$XDG_DATA_CONFIG/black" ]
+			cat $XDG_CONFIG_HOME/black >> pyproject.toml
+		if [  -f "$XDG_DATA_CONFIG/ruff" ]
+			cat $XDG_CONFIG_HOME/ruff >> pyproject.toml
+	else
+		echo "pyproject.toml exist, do nothing"
+	fi

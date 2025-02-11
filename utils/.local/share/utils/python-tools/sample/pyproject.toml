@@ -4,3 +4,26 @@ line_length = 120
 
 [tool.basedpyright]
 typeCheckingMode = "basic"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+preview = true
+select = ["ALL"]
+ignore = [
+	"D1",
+	"UP007",
+	"CPY001",
+	"COM812",
+	"FA100",
+	"FA102",
+	"UP007",
+	"D203",
+	"D211",
+	"D212",
+	"D213",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ["S101", "PLR6301", "ANN201"]
