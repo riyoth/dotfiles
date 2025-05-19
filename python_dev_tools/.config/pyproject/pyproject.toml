@@ -1,5 +1,5 @@
 [tool.isort]
-profile = "black"
+profile = "pycharm"
 line_length = 120
 
 [tool.black]
@@ -12,6 +12,4 @@ typeCheckingMode = "basic"
 line-length = 120
 
 [tool.ruff.lint]
-preview = true
-select = ["ALL"]
-ignore = ["D1", "UP007", "CPY001", "COM812", "RET502"]
+ignore = ['COM812']
