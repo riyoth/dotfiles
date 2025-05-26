@@ -10,6 +10,9 @@ defaults write com.apple.dock wvous-br-modifier -int 1048576
 defaults write -g com.apple.mouse.scaling  5.0
 defaults write -g com.apple.swipescrolldirection -boolean NO
 
+# Fix lag with wireless mouse and headphone
+defaults write /Library/Preferences/com.apple.airport.bt.plist bluetoothCoexMgmt Hybrid
+
 # Dock Settings
 defaults write com.apple.dock orientation left
 defaults write com.apple.Dock autohide 1
