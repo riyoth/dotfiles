@@ -43,5 +43,5 @@ export PYENV_ROOT="$XDG_DATA_HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export VOLTA_HOME="$XDG_DATA_HOME/volta"
-[[ -d $VOLTA_HOME/bin ]] && export PATH="$VOLTA_HOME/bin:$PATH"
+#export VOLTA_HOME="$XDG_DATA_HOME/volta"
+#[[ -d $VOLTA_HOME/bin ]] && export PATH="$VOLTA_HOME/bin:$PATH"
