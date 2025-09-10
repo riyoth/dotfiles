@@ -1,4 +1,7 @@
+export HISTSIZE=100000
+export SAVEHIST=100000
 export EDITOR=nvim
+
 
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
