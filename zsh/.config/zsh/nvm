@@ -1,4 +1,4 @@
-#export NVM_DIR="$XDG_DATA_HOME/nvm"
-#export NVM_LAZY_LOAD=true
-#export NVM_LAZY_LOAD_EXTRA_COMMANDS=('vim', 'vi', 'nvim')
-#[[ -d $ZDOTDIR/plugins/zsh-nvm/ ]] && source $ZDOTDIR/plugins/zsh-nvm/zsh-nvm.plugin.zsh
+export NVM_DIR="$XDG_DATA_HOME/nvm"
+export NVM_LAZY_LOAD=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=('vim', 'vi', 'nvim')
+[[ -d $ZDOTDIR/plugins/zsh-nvm/ ]] && source $ZDOTDIR/plugins/zsh-nvm/zsh-nvm.plugin.zsh
