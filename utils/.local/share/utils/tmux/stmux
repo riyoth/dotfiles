@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 # Fixed ANSI Escape Codes (more portable)
 GREEN=$(printf '\033[0;32m')
 BLUE=$(printf '\033[0;34m')
@@ -14,7 +15,7 @@ fi
 
 # 2. Get project directories with Blue color
 # Adjust these paths to your actual project folders
-projects=$(find ~/code  -mindepth 1 -maxdepth 1 -type d | sed "s|^|${BLUE}|;s|$|${NC}|")
+projects=$(find ~/code  -mindepth 1 -maxdepth 1 \( -type d -o -type l \) | sed "s|^|${BLUE}|;s|$|${NC}|")
 
 # 3. The Preview Command (A mini-script inside fzf)
 # It strips the color, checks if it's a directory or session, and shows info.
@@ -36,7 +37,6 @@ PREVIEW_STRATEGY='
 # 4. The Fuzzy Finder Popup
 selected=$(printf "%s\n%s" "$sessions" "$projects" | fzf \
     --ansi \
-    --tmux center,80%,70% \
     --reverse \
     --border \
     --prompt="Jump to > " \
