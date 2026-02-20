@@ -24,12 +24,12 @@ git clone --recursive https://github.com/riyoth/dotfile.git "${XDG_DATA_HOME}/do
 
 For a server with no UI
 ```
-stow -t ~ nvim git zsh bash tmux screen
+stow -t ~ git zsh bash tmux screen utils
 ```
 
 For a workstation with UI
 ```
-stow -t ~ nvim git zsh bash tmux screen alacritty
+stow -t ~ git zsh bash tmux screen  utils alacritty
 ```
 
 ### Zsh

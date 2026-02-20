@@ -7,4 +7,6 @@ zsh
 screen
 golang
 uv
+fzf
+
 

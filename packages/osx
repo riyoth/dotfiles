@@ -1,4 +1,4 @@
-brew install stow neovim tmux
+brew install stow neovim tmux fzf
 brew install pyenv pyenv-virtualenv pipx
 brew install --cask alfred
 brew install --cask rectangle
