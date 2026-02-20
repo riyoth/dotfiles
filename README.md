@@ -45,10 +45,9 @@ done
 
 ```
 
-If you need nvm to manage node, install zsh-nvm to enable lazyloading and keep zsh loadtime reasonable.
+Optional configuration are available in file _, link them without the _.
 ```
-mkdir -p ${ZDOTDIR:-$HOME}/plugins/
-git clone https://github.com/lukechilds/zsh-nvm.git ${ZDOTDIR:-$HOME}/plugins/zsh-nvm
+ln -s _pyenv pyenv
 ```
 
 ### Alacritty
