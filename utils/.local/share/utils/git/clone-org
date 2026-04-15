@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# Usage: clone-org <org> [dest-dir]
+# Clones all repos you have access to in a GitHub org using bare+worktree setup.
+# Each repo gets: <repo>/.repository (bare) + <repo>/dev (worktree for dev branch)
+
+set -euo pipefail
+
+ORG=${1:?"Usage: $0 <github-org> [dest-dir]"}
+DEST_DIR=${2:-.}
+
+if ! command -v gh &>/dev/null; then
+    echo "Error: gh CLI is required. Install with: brew install gh" >&2
+    exit 1
+fi
+
+if ! gh auth status &>/dev/null; then
+    echo "Error: not authenticated. Run: gh auth login" >&2
+    exit 1
+fi
+
+mkdir -p "$DEST_DIR"
+
+echo "Fetching repos for org: $ORG"
+REPOS=$(gh repo list "$ORG" --limit 1000 --json nameWithOwner,sshUrl --jq '.[].sshUrl')
+
+if [ -z "$REPOS" ]; then
+    echo "No repos found (or no access)."
+    exit 0
+fi
+
+TOTAL=$(echo "$REPOS" | wc -l | tr -d ' ')
+echo "Found $TOTAL repos"
+echo ""
+
+SUCCESS=0
+SKIPPED=0
+FAILED=0
+
+while IFS= read -r REPO_URL; do
+    REPO_NAME=$(basename "$REPO_URL" .git)
+    TARGET="$DEST_DIR/$REPO_NAME"
+
+    if [ -d "$TARGET/.repository" ]; then
+        echo "⏭  $REPO_NAME (already exists, skipping)"
+        ((SKIPPED++)) || true
+        continue
+    fi
+
+    echo "🌱 Cloning $REPO_NAME..."
+    mkdir -p "$TARGET"
+
+    if ! git clone --bare "$REPO_URL" "$TARGET/.repository" 2>/dev/null; then
+        echo "   ✗ Failed to clone $REPO_NAME"
+        rm -rf "$TARGET"
+        ((FAILED++)) || true
+        continue
+    fi
+
+    # Fix remote tracking so fetch works correctly
+    git --git-dir="$TARGET/.repository" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+    git --git-dir="$TARGET/.repository" fetch origin --quiet 2>/dev/null
+
+    # Try dev first, then fall back to main/master
+    BRANCH=""
+    for b in dev develop main master; do
+        if git --git-dir="$TARGET/.repository" rev-parse --verify "origin/$b" &>/dev/null; then
+            BRANCH=$b
+            break
+        fi
+    done
+
+    if [ -z "$BRANCH" ]; then
+        echo "   ✗ No suitable branch found for $REPO_NAME"
+        ((FAILED++)) || true
+        continue
+    fi
+
+    git --git-dir="$TARGET/.repository" worktree add "$TARGET/$BRANCH" "origin/$BRANCH" --quiet 2>/dev/null
+    echo "   ✓ $REPO_NAME  →  $BRANCH/"
+    ((SUCCESS++)) || true
+
+done <<< "$REPOS"
+
+echo ""
+echo "Done. $SUCCESS cloned, $SKIPPED skipped, $FAILED failed."

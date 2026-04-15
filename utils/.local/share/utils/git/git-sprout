@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# Usage:
+# ./git-sprout.sh init <url> [dir]       - Setup the workspace
+# ./git-sprout.sh new <branch>           - Create a brand new branch and worktree
+# ./git-sprout.sh add <branch>           - Create worktree from existing branch
+# ./git-sprout.sh kill <folder>          - Remove an agent worktree
+
+COMMAND=$1
+ARG1=$2
+ARG2=$3
+
+# --- Helper: Get Parent Info ---
+get_repo_info() {
+    REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
+    PARENT_DIR=$(dirname "$REPO_ROOT" 2>/dev/null)
+    BARE_DIR="$PARENT_DIR/.repository"
+}
+
+case $COMMAND in
+    init)
+        REPO_URL=$ARG1
+        TARGET_DIR=$ARG2
+        [ -z "$TARGET_DIR" ] && TARGET_DIR=$(basename "$REPO_URL" .git)
+        
+        echo "🌱 Initializing workspace: $TARGET_DIR"
+        mkdir -p "$TARGET_DIR" && cd "$TARGET_DIR"
+        
+        git clone --bare "$REPO_URL" .repository
+        # CRITICAL: Fix the bare repo config so it tracks remotes correctly
+        git --git-dir=.repository config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+        git --git-dir=.repository fetch origin
+        
+        # Add default branches
+        for b in main master develop; do
+            if git --git-dir=.repository rev-parse --verify "origin/$b" >/dev/null 2>&1; then
+                git --git-dir=.repository worktree add "${b##*/}" "origin/$b"
+            fi
+        done
+        ;;
+
+    new)
+        get_repo_info
+        BRANCH=$ARG1
+        FOLDER="${BRANCH##*/}"
+        echo "🌿 Creating NEW branch: $BRANCH"
+        git --git-dir="$BARE_DIR" worktree add -b "$BRANCH" "../$FOLDER"
+        # Set upstream so 'git push' works immediately
+        cd "../$FOLDER" && git push -u origin "$BRANCH"
+        ;;
+
+    add)
+        get_repo_info
+        BRANCH=$ARG1
+        FOLDER="${BRANCH##*/}"
+        echo "🌿 Adding EXISTING branch: $BRANCH"
+        # Try to find it on origin if not local
+        git --git-dir="$BARE_DIR" fetch origin
+        git --git-dir="$BARE_DIR" worktree add "../$FOLDER" "$BRANCH"
+        ;;
+
+    kill)
+        get_repo_info
+        FOLDER=$ARG1
+        echo "🪓 Removing agent: $FOLDER"
+        git worktree remove "../$FOLDER"
+        ;;
+
+    *)
+        echo "Usage: $0 {init|new|add|kill} [args]"
+        exit 1
+        ;;
+esac

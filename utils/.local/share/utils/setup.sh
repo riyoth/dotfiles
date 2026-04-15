@@ -8,3 +8,7 @@ fi
 if [ ! -f "$HOME/.local/bin/stmux" ]; then
 	ln -s $XDG_DATA_HOME/utils/tmux/stmux $HOME/.local/bin
 fi
+
+if [ ! -f "$HOME/.local/bin/git-sprout" ]; then
+	ln -s $XDG_DATA_HOME/utils/git/git-sprout $HOME/.local/bin
+fi

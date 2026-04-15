@@ -1,0 +1,11 @@
+[alias]
+    # Create a new agent worktree quickly
+    # Usage: git agent feature-branch
+    agent = "!f() { git worktree add agents/$1 $1; }; f"
+
+    # List all active agents and their branches
+    agents = worktree list
+
+    # Safely kill an agent when it's done
+    # Usage: git kill-agent agent-alpha
+    kill-agent = "!f() { git worktree remove agents/$1; }; f"

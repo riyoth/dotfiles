@@ -90,3 +90,5 @@ docs/_build/
 
 # PyBuilder
 target/
+
+**/.claude/settings.local.json

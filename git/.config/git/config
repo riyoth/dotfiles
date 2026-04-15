@@ -7,6 +7,9 @@
 [includeIf "gitdir:~/code/"]
     path = ~/code/.gitconfig
 
+[includeIf "gitdir:~/claude/"]
+    path = ~/code/.gitconfig
+
 [alias]
     co = checkout
     fix = commit -a --amend
@@ -31,3 +34,22 @@
 	gpgsign = false
 [init]
 	defaultBranch = main
+
+[alias]
+    # Create a new agent/worktree from a branch
+    # Usage: git sprout feature-branch
+    sprout = "!f() { \
+        folder_name=\"${1##*/}\"; \
+        git worktree add \"../$folder_name\" \"$1\"; \
+    }; f"
+
+    # List all active agents and their branches
+    # Usage: git agents
+    agents = worktree list
+
+    # Remove an agent and its folder when the task is done
+    # Usage: git reap feature-branch
+    reap = "!f() { git worktree remove ../$1; }; f"
+
+    # Prune stale worktree data (useful if you deleted a folder manually)
+    harvest = worktree prune
