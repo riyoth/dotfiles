@@ -1,0 +1,13 @@
+flatpak install --assumeyes --user com.discordapp.Discord/x86_64/stable
+flatpak install --assumeyes --user com.dropbox.Client/x86_64/stable
+flatpak install --assumeyes --user com.google.Chrome/x86_64/stable
+flatpak install --assumeyes --user com.onepassword.OnePassword/x86_64/stable
+flatpak install --assumeyes --user com.slack.Slack/x86_64/stable
+flatpak install --assumeyes --user com.spotify.Client/x86_64/stable
+flatpak install --assumeyes --user com.valvesoftware.Steam/x86_64/stable
+flatpak install --assumeyes --user io.github.softfever.OrcaSlicer/x86_64/master
+flatpak install --assumeyes --user io.podman_desktop.PodmanDesktop/x86_64/stable
+flatpak install --assumeyes --user md.obsidian.Obsidian/x86_64/stable
+flatpak install --assumeyes --user org.freecad.FreeCAD/x86_64/stable
+flatpak install --assumeyes --user org.onlyoffice.desktopeditors/x86_64/stable
+flatpak install --assumeyes --user org.zealdocs.Zeal/x86_64/stable
