@@ -1,0 +1,8 @@
+# CodeArtifact Configuration
+# For uv-codeartifact script
+# Put in ~/.config/uv
+
+# Code artifact domaine
+DOMAIN=""
+# AWS profile to use
+PROFILE=""

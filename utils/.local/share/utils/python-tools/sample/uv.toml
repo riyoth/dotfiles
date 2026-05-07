@@ -1,0 +1,4 @@
+[[index]]
+name = "codeartifact"
+url = "https://<domain>-<accoountid>.d.codeartifact.<region>.amazonaws.com/pypi/<repo name>/simple/"
+default = false

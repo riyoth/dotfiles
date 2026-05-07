@@ -1,0 +1,52 @@
+refresh_uv_token() {
+    local CONFIG_FILE="$XDG_CONFIG_HOME/uv/codeartifact"
+    local TOKEN_CACHE="$XDG_CACHE_HOME/uv/codeartifact-token"
+
+    # 1. Load config (DOMAIN, PROFILE, OWNER)
+    if [[ -f "$CONFIG_FILE" ]]; then
+        source "$CONFIG_FILE"
+    else
+        return 1
+    fi
+
+    # 2. Fast Path: Read from cache if it's < 11 hours old
+    if [[ -f "$TOKEN_CACHE" ]]; then
+        local last_mod=$(stat -f %m "$TOKEN_CACHE")
+        local now=$(date +%s)
+        if (( now - last_mod < 39600 )); then
+            export UV_AUTH_TOKEN_CODEARTIFACT="aws:$(cat "$TOKEN_CACHE")"
+            export UV_INDEX_CODEARTIFACT_USERNAME="aws"
+            export UV_INDEX_CODEARTIFACT_PASSWORD="$(cat "$TOKEN_CACHE")"
+            return 0
+        fi
+    fi
+
+    # 3. Slow Path: Check if SSO session is actually active before fetching
+    # We use 'sts get-caller-identity' as a quick, low-overhead check
+    if ! aws sts get-caller-identity --profile "$PROFILE" &>/dev/null; then
+        echo "⚠️  AWS SSO session expired for profile '$PROFILE'. Run 'aws sso login'."
+        return 1
+    fi
+
+    # 4. Fetch New Token
+    local OWNER_FLAG=""
+    [[ -n "$OWNER" ]] && OWNER_FLAG="--domain-owner $OWNER"
+
+    local NEW_TOKEN=$(aws codeartifact get-authorization-token \
+        --domain "$DOMAIN" \
+        --profile "$PROFILE" \
+        $OWNER_FLAG \
+        --query authorizationToken \
+        --output text 2>/dev/null)
+
+    # 5. Save and Export
+    if [[ $? -eq 0 && -n "$NEW_TOKEN" ]]; then
+        mkdir -p "$(dirname "$TOKEN_CACHE")"
+        echo "$NEW_TOKEN" > "$TOKEN_CACHE"
+        export UV_AUTH_TOKEN_CODEARTIFACT="aws:$NEW_TOKEN"
+        export UV_INDEX_CODEARTIFACT_USERNAME="aws"
+        export UV_INDEX_CODEARTIFACT_PASSWORD="$NEW_TOKEN"
+    fi
+}
+
+refresh_uv_token
