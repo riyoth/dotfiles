@@ -1,0 +1,11 @@
+# Top-level settings
+python-preference = "managed"
+python-downloads = "auto"
+
+[[index]]
+name = "codeartifact"
+url = "https://<domain>-<accoountid>.d.codeartifact.<region>.amazonaws.com/pypi/<repo name>/simple/"
+default = false
+explicit = true
+# Every package starting with 'org-' will be pulled from CodeArtifact
+#include-packages = ["org-*", "specific-package"]
