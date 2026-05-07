@@ -10,7 +10,7 @@ save_to_clipboard = true
 
 [general]
 import = [
-	"~/.config/alacritty/themes/themes/everforest_light.toml",
+	"~/.config/alacritty/themes/themes/solarized_light.toml",
 	"~/.config/alacritty/osx.toml",
 	"~/.config/alacritty/arch.toml",
 ]
