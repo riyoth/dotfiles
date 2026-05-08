@@ -1,0 +1,12 @@
+# Only set aliases and defaults if uv is present on the system
+if command -v uv &> /dev/null; then
+    source ~/.local/bin/uv-codeartifact 
+    export UV_PYTHON="3.13"
+    export PRE_COMMIT_USE_UV=1
+    alias python="uv run python"
+    alias python3="uv run python"
+    alias pip="uv pip"
+else
+    # Optional: Fallback for when uv is missing
+    # echo "Notice: uv not found. Python aliases not set."
+fi

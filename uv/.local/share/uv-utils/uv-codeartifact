@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 refresh_uv_token() {
     local CONFIG_FILE="$XDG_CONFIG_HOME/uv/codeartifact"
     local TOKEN_CACHE="$XDG_CACHE_HOME/uv/codeartifact-token"
