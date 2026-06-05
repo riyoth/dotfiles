@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Install tools with uv 
+# To update the list use: `uv tool list | grep '^[a-z]' | awk '{print "uv tool install " $1}'`
+
+uv tool install basedpyright
+uv tool install black
+uv tool install chenv
+uv tool install cookiecutter
+uv tool install flake8
+uv tool install graphifyy
+uv tool install isort
+uv tool install mypy
+uv tool install nox
+uv tool install poetry
+uv tool install pre-commit
+uv tool install pylint
+uv tool install pyright
+uv tool install ruff
+uv tool install sqlacodegen
+uv tool install sqlfluff
+uv tool install tox
+uv tool install ty
