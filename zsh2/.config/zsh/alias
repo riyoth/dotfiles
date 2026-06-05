@@ -1,0 +1,19 @@
+# ls
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias l='ls -lah'
+
+# grep
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias myip='curl ipinfo.io/ip'
+alias vim="nvim"
+alias vi="nvim"
+alias myprs="gh search prs --author \"@me\" --state open --json author,repository,title,url -q '.[] | \"* Repository: \"+ .repository.name +\" Task: \"+ .title +\" PR: \"+ .url' | cat"

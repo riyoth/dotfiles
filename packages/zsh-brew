@@ -1,0 +1,4 @@
+brew "starship"
+brew "zsh-autosuggestions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"

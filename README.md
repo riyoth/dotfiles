@@ -24,29 +24,37 @@ git clone --recursive https://github.com/riyoth/dotfile.git "${XDG_DATA_HOME}/do
 
 For a server with no UI:
 ```
-stow -t ~ git zsh bash tmux screen utils
+stow -t ~ git zsh2 bash tmux screen utils
 ```
 
 For a workstation with UI:
 ```
-stow -t ~ git zsh bash tmux screen utils alacritty
+stow -t ~ git zsh2 bash tmux screen utils alacritty
 ```
 
 ### Zsh
 
-Install Prezto with the following command:
-```
-git clone --recursive https://github.com/riyoth/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+Install the required packages for your platform:
 
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+**macOS:**
+```
+brew bundle --file packages/osx-brew
+brew bundle --file packages/zsh-brew
 ```
 
-Optional configuration are available in files prefixed with `_`. Link them without the prefix:
+**Arch Linux:**
 ```
-ln -s _pyenv pyenv
+pacman -S $(cat packages/arch-headless packages/zsh-arch)
+```
+
+**Fedora:**
+```
+dnf install $(cat packages/fedora-ui packages/zsh-fedora)
+```
+
+Then deploy the zsh config:
+```
+stow -t ~ zsh2
 ```
 
 ### Alacritty
