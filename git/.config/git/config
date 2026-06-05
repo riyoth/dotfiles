@@ -1,7 +1,6 @@
 [user]
-    email = poclement@riyoth.info
-    name = Pier-Olivier Clement
-#	signingkey = 0x59F079DA3BEB641D
+    email = your-personal-email@example.com
+    name = Your Name
 
 # Add  local overide for work
 [includeIf "gitdir:~/code/"]
