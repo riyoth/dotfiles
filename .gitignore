@@ -12,3 +12,5 @@ alacritty/.config/alacritty/osx.toml
 alacritty/.config/alacritty/arch.toml
 tmux/.config/tmux/plugins/
 uv/.config/uv/uv.toml
+uv/.config/uv/codeartifact
+
