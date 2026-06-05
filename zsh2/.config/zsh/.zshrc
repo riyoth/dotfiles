@@ -40,9 +40,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
 
-# Vi key bindings
-bindkey -v
-export KEYTIMEOUT=1
 
 # zsh-autosuggestions
 for _plugin in \

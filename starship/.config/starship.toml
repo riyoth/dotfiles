@@ -1,0 +1,76 @@
+# https://starship.rs/config/
+
+palette = "solarized_light"
+add_newline = false
+
+[line_break]
+disabled = true
+
+[palettes.solarized_light]
+base01 = "#586e75"
+yellow = "#b58900"
+red = "#dc322f"
+magenta = "#d33682"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
+
+format = "$username$hostname$directory$git_branch$git_state$python$character"
+
+[character]
+success_symbol = "[❯](red)[❯](yellow)[❯](green)"
+error_symbol = "[❯](red)[❯](yellow)[❯](red)"
+vimcmd_symbol = "[❮](green)[❮](yellow)[❮](red)"
+
+[username]
+show_always = false
+format = "[$user]($style)"
+style_user = "bold red"
+
+[hostname]
+ssh_only = true
+format = "[@$hostname]($style) "
+style = "bold yellow"
+
+[directory]
+style = "bold blue"
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style) "
+
+[git_branch]
+symbol = ""
+format = "[$symbol$branch]($style) "
+style = "bold green"
+
+[git_state]
+format = "[$state( $progress_current/$progress_total)]($style) "
+style = "bold yellow"
+
+[git_status]
+disabled = true
+
+[python]
+format = "[(($virtualenv) )](yellow)"
+
+[status]
+disabled = false
+symbol = "✘ "
+style = "bold red"
+format = "[$symbol$status]($style) "
+
+[docker_context]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[package]
+disabled = true
+
+[cmd_duration]
+min_time = 2_000
+format = "[$duration](yellow) "

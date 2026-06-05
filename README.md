@@ -52,9 +52,9 @@ pacman -S $(cat packages/arch-headless packages/zsh-arch)
 dnf install $(cat packages/fedora-ui packages/zsh-fedora)
 ```
 
-Then deploy the zsh config:
+Then deploy the zsh and starship configs:
 ```
-stow -t ~ zsh2
+stow -t ~ zsh2 starship
 ```
 
 ### Alacritty
