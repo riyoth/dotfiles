@@ -1,0 +1,4 @@
+" .ideavimrc is a configuration file for IdeaVim plugin.
+" Ideavimd doesn't support XDG configuration yet, so we need this :(
+
+source ~/.config/ideavim/ideavimrc
