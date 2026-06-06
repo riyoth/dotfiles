@@ -49,7 +49,14 @@ pacman -S $(cat packages/arch-headless packages/zsh-arch)
 
 **Fedora:**
 ```
+dnf copr enable atim/starship
 dnf install $(cat packages/fedora-ui packages/zsh-fedora)
+```
+
+`zsh-history-substring-search` is not available in Fedora repos, install manually:
+```
+git clone https://github.com/zsh-users/zsh-history-substring-search \
+  ~/.local/share/zsh/plugins/zsh-history-substring-search
 ```
 
 Then deploy the zsh and starship configs:

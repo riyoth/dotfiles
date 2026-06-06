@@ -61,7 +61,8 @@ done
 for _plugin in \
   "$(brew --prefix 2>/dev/null)/share/zsh-history-substring-search/zsh-history-substring-search.zsh" \
   /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh \
-  /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh; do
+  /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh \
+  "${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh"; do
   [[ -f "$_plugin" ]] && { source "$_plugin"; break }
 done
 unset _plugin
