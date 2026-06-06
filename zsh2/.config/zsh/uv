@@ -1,6 +1,8 @@
 # Only set aliases and defaults if uv is present on the system
 if command -v uv &> /dev/null; then
-    source ~/.local/bin/uv-codeartifact 
+    if [ -f "~/.local/bin/uv-codeartifact" ]; then
+        source ~/.local/bin/uv-codeartifact 
+    fi
     export PRE_COMMIT_USE_UV=1
     alias python="uv run python"
     alias python3="uv run python"
