@@ -17,9 +17,10 @@ export HISTFILE="$ZDOTDIR"/.zsh_history
 
 Then install the useful packages from the appropriate file in `./packages`.
 
-Clone this repository in `~/.local/share`:
+Clone this repository in `$XDG_DATA_HOME`:
 ```
 git clone --recursive https://github.com/riyoth/dotfile.git "${XDG_DATA_HOME}/dotfiles"
+cd "${XDG_DATA_HOME}/dotfiles"
 ```
 
 For a server with no UI:
@@ -56,7 +57,7 @@ dnf install $(cat packages/fedora-ui packages/zsh-fedora)
 `zsh-history-substring-search` is not available in Fedora repos, install manually:
 ```
 git clone https://github.com/zsh-users/zsh-history-substring-search \
-  ~/.local/share/zsh/plugins/zsh-history-substring-search
+  "${XDG_DATA_HOME}/zsh/plugins/zsh-history-substring-search"
 ```
 
 Then deploy the zsh and starship configs:
@@ -68,14 +69,14 @@ stow -t ~ zsh2 starship
 The configuration refers to themes from GitHub. To install themes:
 
 ```
-mkdir -p ~/.config/alacritty/themes
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+mkdir -p "${XDG_CONFIG_HOME}/alacritty/themes"
+git clone https://github.com/alacritty/alacritty-theme "${XDG_CONFIG_HOME}/alacritty/themes"
 ```
 
 Some configs differ between OSX and Arch. Hardlink the appropriate configuration to activate it:
 ```
-ln ~/.config/alacritty/_arch.toml ~/.config/alacritty/arch.toml
-ln ~/.config/alacritty/_osx.toml ~/.config/alacritty/osx.toml
+ln "${XDG_CONFIG_HOME}/alacritty/_arch.toml" "${XDG_CONFIG_HOME}/alacritty/arch.toml"
+ln "${XDG_CONFIG_HOME}/alacritty/_osx.toml" "${XDG_CONFIG_HOME}/alacritty/osx.toml"
 ```
 
 ### Neovim
@@ -86,7 +87,7 @@ To install my config, make sure you have the following installed:
  - Nerd font
 
 ```
-git clone https://github.com/riyoth/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+git clone https://github.com/riyoth/kickstart.nvim.git "${XDG_CONFIG_HOME}/nvim"
 ```
 
 ### IdeaVim
@@ -116,7 +117,7 @@ bash packages/uv-tools.txt
 
 Keyboard remapping configuration for [Karabiner-Elements](https://karabiner-elements.pqrs.org/) on macOS. To install:
 ```
-mkdir -p ~/.config/karabiner
+mkdir -p "${XDG_CONFIG_HOME}/karabiner"
 stow -t ~ karabiner
 ```
 

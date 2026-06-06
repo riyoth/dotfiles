@@ -7,6 +7,7 @@ zsh/.config/zsh/.zprofile
 zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/.zshenv
 zsh/.config/zsh/.zshrc
+zsh2/.config/zsh/.zsh_history
 alacritty/.config/alacritty/themes/
 alacritty/.config/alacritty/osx.toml
 alacritty/.config/alacritty/arch.toml
