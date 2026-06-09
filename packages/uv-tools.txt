@@ -5,7 +5,7 @@
 
 uv tool install basedpyright
 uv tool install black
-uv tool install chenv
+#uv tool install chenv
 uv tool install cookiecutter
 uv tool install flake8
 uv tool install graphifyy

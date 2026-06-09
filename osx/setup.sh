@@ -11,7 +11,7 @@ defaults write -g com.apple.mouse.scaling  5.0
 defaults write -g com.apple.swipescrolldirection -boolean NO
 
 # Fix lag with wireless mouse and headphone
-defaults write /Library/Preferences/com.apple.airport.bt.plist bluetoothCoexMgmt Hybrid
+#defaults write /Library/Preferences/com.apple.airport.bt.plist bluetoothCoexMgmt Hybrid
 
 # Move Screenshots folders
 mkdir -p ~/Pictures/Screenshots
