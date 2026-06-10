@@ -2,7 +2,6 @@
 if command -v uv &> /dev/null; then
     if [ -f "$XDG_DATA_HOME/../bin/uv-codeartifact" ]; then
         source $XDG_DATA_HOME/../bin/uv-codeartifact
-        echo 'help'
     fi
     export PRE_COMMIT_USE_UV=1
     alias python="uv run python"

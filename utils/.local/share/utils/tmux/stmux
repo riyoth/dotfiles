@@ -15,21 +15,22 @@ fi
 
 # 2. Get project directories with Blue color
 # Adjust these paths to your actual project folders
-projects=$(find ~/code  -mindepth 1 -maxdepth 1 \( -type d -o -type l \) | sed "s|^|${BLUE}|;s|$|${NC}|")
+projects=$(find ~/code  -mindepth 2 -maxdepth 2 \( -type d -o -type l \) | sed "s|$HOME/||;s|^|${BLUE}|;s|$|${NC}|")
 
 # 3. The Preview Command (A mini-script inside fzf)
 # It strips the color, checks if it's a directory or session, and shows info.
 PREVIEW_STRATEGY='
     item=$(echo {} | sed "s/\x1b\[[0-9;]*m//g");
+    full_path="$HOME/$item";
     if tmux has-session -t "$item" 2>/dev/null; then
         echo "--- WINDOWS IN SESSION: $item ---";
         tmux list-windows -t "$item" -F "#I: #W #{?window_active,(active),}";
-    elif [ -d "$item" ]; then
-        echo "--- FILES IN: $(basename $item) ---";
-        ls -F --color=always "$item" | head -10;
-        if [ -d "$item/.git" ]; then
+    elif [ -d "$full_path" ]; then
+        echo "--- FILES IN: $(basename $full_path) ---";
+        ls -F --color=always "$full_path" | head -10;
+        if [ -d "$full_path/.git" ]; then
             echo -e "\n--- GIT STATUS ---";
-            git -C "$item" status -s;
+            git -C "$full_path" status -s;
         fi
     fi
 '
@@ -52,10 +53,10 @@ fi
 clean_selected=$(echo "$selected" | sed 's/\x1b\[[0-9;]*m//g')
 
 # 6. Logic to switch/create
-if [[ -d "$clean_selected" ]]; then
-    selected_name=$(basename "$clean_selected" | tr . _)
+if [[ -d "$HOME/$clean_selected" ]]; then
+    selected_name=$(echo "$clean_selected" | awk -F'/' '{print $(NF-1)"_"$NF}' | tr . _)
     if ! tmux has-session -t="$selected_name" 2> /dev/null; then
-        tmux new-session -ds "$selected_name" -c "$clean_selected"
+        tmux new-session -ds "$selected_name" -c "$HOME/$clean_selected"
     fi
 else
     selected_name="$clean_selected"
