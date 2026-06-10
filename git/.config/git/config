@@ -1,12 +1,9 @@
 [user]
-    email = your-personal-email@example.com
-    name = Your Name
+    email = poclement@riyoth.info
+    name = Pier-Olivier Clement
 
 # Add  local overide for work
 [includeIf "gitdir:~/code/"]
-    path = ~/code/.gitconfig
-
-[includeIf "gitdir:~/claude/"]
     path = ~/code/.gitconfig
 
 [alias]
