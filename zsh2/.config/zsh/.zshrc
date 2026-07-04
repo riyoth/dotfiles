@@ -31,10 +31,23 @@ setopt PUSHD_SILENT
 
 # Completion
 autoload -Uz compinit
+
 _zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
 mkdir -p "${_zcompdump:h}"
-compinit -d "$_zcompdump"
+
+# Check if the cache file exists AND is less than 24 hours old (.mh+24)
+if [[ -n "$_zcompdump"(#qN.mh+24) ]]; then
+  compinit -d "$_zcompdump"
+else
+  # Cache is fresh: Skip the disk audit (-C) for instant loading
+  compinit -C -d "$_zcompdump"
+fi
+
+# Compile to binary for speed
+[[ "$_zcompdump" -nt "$_zcompdump.zwc" ]] && zcompile "$_zcompdump"
+
 unset _zcompdump
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' use-cache on
