@@ -10,6 +10,10 @@ defaults write com.apple.dock wvous-br-modifier -int 1048576
 defaults write -g com.apple.mouse.scaling  5.0
 defaults write -g com.apple.swipescrolldirection -boolean NO
 
+# Trackpad Settings
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadScroll -bool true
+defaults write -g com.apple.swipescrolldirection -bool true
+
 # Fix lag with wireless mouse and headphone
 #defaults write /Library/Preferences/com.apple.airport.bt.plist bluetoothCoexMgmt Hybrid
 
